@@ -39,12 +39,21 @@
       padding: 22px 0 36px;
     }
 
+    .topbar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
     h1 {
-      margin: 0 0 14px;
+      flex: 0 1 auto;
+      margin: 0;
       color: var(--green-dark);
-      font-size: clamp(25px, 6vw, 38px);
+      font-size: clamp(17px, 4.2vw, 30px);
       line-height: 1.1;
       letter-spacing: -.045em;
+      white-space: nowrap;
     }
 
     .screen {
@@ -187,8 +196,10 @@
 
     #promoLink {
       display: block;
+      flex: 0 1 360px;
+      min-width: 0;
+      margin-left: auto;
       aspect-ratio: 4 / 1;
-      margin-top: 12px;
       overflow: hidden;
       border: 1px solid #d4dad3;
       border-radius: 8px;
@@ -204,6 +215,8 @@
 
     @media (max-width: 540px) {
       main { padding-top: 16px; }
+      .topbar { gap: 6px; margin-bottom: 8px; }
+      h1 { font-size: clamp(15px, 4.4vw, 19px); }
       .fields { grid-template-columns: 1fr 1fr; }
       .editor { padding: 12px; }
       #lyrics { min-height: 290px; max-height: 46vh; }
@@ -216,7 +229,12 @@
 </head>
 <body>
   <main>
-    <h1>applicationの替え歌作り機</h1>
+    <header class="topbar">
+      <h1>applicationの替え歌作り機</h1>
+      <a id="promoLink" href="https://aisa.radioalps.com/music/track/4782" target="_blank" rel="noopener">
+        <img id="promoBanner" src="aisa-banner.jpg" width="1536" height="384" alt="AISAでapplicationを聴く">
+      </a>
+    </header>
 
     <section class="screen" aria-label="歌詞表示エリア">
       <div id="lyrics" aria-live="polite">
@@ -289,9 +307,6 @@
         <button id="generate" type="button">替え歌を作る</button>
         <button id="karaoke" type="button">カラオケスタート</button>
       </div>
-      <a id="promoLink" href="https://aisa.radioalps.com/music/track/4782" target="_blank" rel="noopener">
-        <img id="promoBanner" src="aisa-banner.webp" width="1536" height="384" alt="AISAでapplicationを聴く">
-      </a>
     </section>
 
     <audio id="audio" preload="none"></audio>
