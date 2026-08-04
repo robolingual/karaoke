@@ -289,8 +289,8 @@
         <button id="generate" type="button">替え歌を作る</button>
         <button id="karaoke" type="button">カラオケスタート</button>
       </div>
-      <a id="promoLink" href="#" target="_blank" rel="noopener" hidden>
-        <img id="promoBanner" data-src="aisa-banner.webp" width="1440" height="360" alt="AISAでapplicationを聴く">
+      <a id="promoLink" href="https://aisa.radioalps.com/music/track/4782" target="_blank" rel="noopener">
+        <img id="promoBanner" src="aisa-banner.webp" width="1536" height="384" alt="AISAでapplicationを聴く">
       </a>
     </section>
 
@@ -299,7 +299,6 @@
 
   <script>
     (() => {
-      const PROMO_URL = ""; // 後でAISAのapplicationページURLを入れる
       const AUDIO_URL = "app_karaoke.mp3";
       // 歌入り版とカラオケ版の波形差分から採った実測タイムライン。
       // line は、空行を除いた歌詞行の0始まり番号。
@@ -556,11 +555,6 @@
         if (audioObjectUrl) URL.revokeObjectURL(audioObjectUrl);
       });
 
-      if (PROMO_URL) {
-        $("promoLink").href = PROMO_URL;
-        $("promoBanner").src = $("promoBanner").dataset.src;
-        $("promoLink").hidden = false;
-      }
     })();
   </script>
 </body>
